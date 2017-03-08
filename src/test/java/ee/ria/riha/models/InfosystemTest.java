@@ -36,14 +36,16 @@ public class InfosystemTest {
         "      \"timestamp\": \"2016-12-13T17:10:20.785\"" +
         "    }" +
         "  }," +
-        "  \"uri\": \"http://base.url/fox\"" +
-        "}";
+        "  \"uri\": \"http://base.url/fox\"," +
+        "  \"purpose\": \"Rebaste kataloog\"" +
+    "}";
 
     Infosystem infosystem = new Infosystem(new JSONObject(json), "http://base.url");
 
     assertEquals("12345", infosystem.getOwner().getCode());
     assertEquals("http://base.url/fox", infosystem.getUri());
     assertEquals("http://riha.eesti.ee", infosystem.getDocumentation());
+    assertEquals("Rebaste kataloog", infosystem.getPurpose());
     assertEquals("Rebaste register", infosystem.getName());
     assertEquals("fox", infosystem.getShortname());
     assertEquals("2016-12-13T17:10:20.785", infosystem.getMeta().getSystem_status().getTimestamp());
@@ -59,6 +61,7 @@ public class InfosystemTest {
       "    \"code\": \"70000562\"" +
       "  }," +
       "  \"documentation\": \"eesti_kirikute_koguduste_ja_koguduste_liitude_register\"," +
+      "  \"purpose\": \"Kirikute kataloog\"," +
       "  \"meta\": {" +
       "    \"system_status\": {" +
       "      \"timestamp\": \"2015-09-05T00:36:26.255215\"" +
@@ -71,6 +74,7 @@ public class InfosystemTest {
       "Eesti kirikute, koguduste ja koguduste liitude register",
       "Eesti kirikuregister",
       "eesti_kirikute_koguduste_ja_koguduste_liitude_register",
+      "Kirikute kataloog",
       "70000562",
       "2015-09-05T00:36:26.255215",
       "http://base.url");
